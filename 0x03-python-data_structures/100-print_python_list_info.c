@@ -1,8 +1,8 @@
 #include <Python.h>
 
 /**
- * print_python_list_info - Prints basic info about Python lists.
- * @p: A PyObject list.
+ * print_python_list_info - gives output of the basic info about Python lists.
+ * @p: A Py-Object list.
  */
 void print_python_list_info(PyObject *p)
 {
