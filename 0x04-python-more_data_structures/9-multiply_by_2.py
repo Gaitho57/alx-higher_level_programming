@@ -5,6 +5,6 @@ def multiply_by_2(a_dictionary):
     list_keys = list(new_dir.keys())
 
     for in_dex in list_keys:
-        new_di[in_dex] *= 2
+        new_dir[in_dex] *= 2
 
     return new_dir
