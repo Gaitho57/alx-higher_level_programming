@@ -51,78 +51,84 @@ The following tasks are included in this project:
 
 * **3. Present in both**
   * [3-common_elements.py](./3-common_elements.py): This Python function returns a set of common
-4. Only differents
 
-4-only_diff_elements.py: This Python function returns a set of all elements that are present in only one of two sets.
-No modules are imported.
-5. Number of keys
+ elements between two sets.
+  * No modules are imported.
 
-5-number_keys.py: This Python function returns the number of keys in a dictionary.
-No modules are imported.
-6. Print sorted dictionary
+* **4. Only differents**
+  * [4-only_diff_elements.py](./4-only_diff_elements.py): This Python function returns a set of all elements that are present in only one of two sets.
+  * No modules are imported.
 
-6-print_sorted_dictionary.py: This Python function prints a dictionary by ordered keys.
-The function assumes all keys are strings.
-Keys are printed in alphabetical order.
-Keys are sorted only on the first level.
-Dictionary values can have any type.
-No modules are imported.
-7. Update dictionary
+* **5. Number of keys**
+  * [5-number_keys.py](./5-number_keys.py): This Python function returns the number of keys in a dictionary.
+  * No modules are imported.
 
-7-update_dictionary.py: This Python function replaces or adds key/value pairs in a dictionary.
-The key parameter is always a string.
-The value parameter can be any type.
-If a key exists in the dictionary, its value is replaced.
-If a key does not exist in the dictionary, it is created.
-No modules are imported.
-8. Simple delete by key
+* **6. Print sorted dictionary**
+  * [6-print_sorted_dictionary.py](./6-print_sorted_dictionary.py): This Python function prints a dictionary by ordered keys.
+  * The function assumes all keys are strings.
+  * Keys are printed in alphabetical order.
+  * Keys are sorted only on the first level.
+  * Dictionary values can have any type.
+  * No modules are imported.
 
-8-simple_delete.py: This Python function deletes a key from a dictionary.
-The key parameter is always a string.
-If the key does not exist, the dictionary remains unchanged.
-No modules are imported.
-9. Multiply by 2
+* **7. Update dictionary**
+  * [7-update_dictionary.py](./7-update_dictionary.py): This Python function replaces or adds key/value pairs in a dictionary.
+  * The `key` parameter is always a string.
+  * The `value` parameter can be any type.
+  * If a key exists in the dictionary, its value is replaced.
+  * If a key does not exist in the dictionary, it is created.
+  * No modules are imported.
 
-9-multiply_by_2.py: This Python function returns a new dictionary with all values multiplied by 2.
-The function assumes all values are integers.
-No modules are imported.
-10. Best score
+* **8. Simple delete by key**
+  * [8-simple_delete.py](./8-simple_delete.py): This Python function deletes a key from a dictionary.
+  * The `key` parameter is always a string.
+  * If the key does not exist, the dictionary remains unchanged.
+  * No modules are imported.
 
-10-best_score.py: This Python function returns the key with the highest integer value in a dictionary.
-The function assumes all values are integers.
-The function assumes all students have a different score.
-If no score is found, None is returned.
-No modules are imported.
-11. Multiply by using map
+* **9. Multiply by 2**
+  * [9-multiply_by_2.py](./9-multiply_by_2.py): This Python function returns a new dictionary with all values multiplied by 2.
+  * The function assumes all values are integers.
+  * No modules are imported.
 
-11-multiply_list_map.py: This Python function returns a list with all values multiplied by a given number using map.
-The function returns a new list of the same length as my_list with each value multiplied by number.
-The initial list is not modified.
-No loops are used, and no modules are imported.
-12. Roman to Integer
+* **10. Best score**
+  * [10-best_score.py](./10-best_score.py): This Python function returns the key with the highest integer value in a dictionary.
+  * The function assumes all values are integers.
+  * The function assumes all students have a different score.
+  * If no score is found, `None` is returned.
+  * No modules are imported.
 
-12-roman_to_int.py: This Python function converts a Roman numeral to an integer.
-The function assumes the number will be between 1 and 3999.
-If the roman_string parameter is not a string or is None, the function returns 0.
-13. Weighted average!
+* **11. Multiply by using map**
+  * [11-multiply_list_map.py](./11-multiply_list_map.py): This Python function returns a list with all values multiplied by a given number using `map`.
+  * The function returns a new list of the same length as `my_list` with each value multiplied by `number`.
+  * The initial list is not modified.
+  * No loops are used, and no modules are imported.
 
-100-weight_average.py: This Python function returns the weighted average of all integers in a list of tuples.
-Each tuple in the list follows the format (<score>, <weight>).
-If the list is empty, 0 is returned.
-No modules are imported.
-14. Squared by using map
+* **12. Roman to Integer**
+  * [12-roman_to_int.py](./12-roman_to_int.py): This Python function converts a Roman numeral to an integer.
+  * The function assumes the number will be between 1 and 3999.
+  * If the `roman_string` parameter is not a string or is `None`, the function returns `0`.
 
-101-square_matrix_map.py: This Python function computes the square value of all integers in a matrix using map.
-The matrix parameter is a two-dimensional array.
-The function returns a new matrix of the same size as matrix with each value squared.
-The initial matrix is not modified.
-No loops are used, and no modules are imported.
-15. Delete by value
+* **13. Weighted average!**
+  * [100-weight_average.py](./100-weight_average.py): This Python function returns the weighted average of all integers in a list of tuples.
+  * Each tuple in the list follows the format `(<score>, <weight>)`.
+  * If the list is empty, `0` is returned.
+  * No modules are imported.
 
-102-complex_delete.py: This Python function deletes keys with a specific value from a dictionary.
-If the value does not exist, the dictionary remains unchanged.
-All keys that have the searched value are deleted.
-No modules are imported.
-16. CPython #1: PyBytesObject
+* **14. Squared by using map**
+  * [101-square_matrix_map.py](./101-square_matrix_map.py): This Python function computes the square value of all
 
-103-python.c: This file contains C functions that print basic information about Python lists and Python bytes objects.
+ integers in a matrix using `map`.
+  * The `matrix` parameter is a two-dimensional array.
+  * The function returns a new matrix of the same size as `matrix` with each value squared.
+  * The initial matrix is not modified.
+  * No loops are used, and no modules are imported.
+
+* **15. Delete by value**
+  * [102-complex_delete.py](./102-complex_delete.py): This Python function deletes keys with a specific value from a dictionary.
+  * If the value does not exist, the dictionary remains unchanged.
+  * All keys that have the searched value are deleted.
+  * No modules are imported.
+
+* **16. CPython #1: PyBytesObject**
+  * [103-python.c](./103-python.c): This file contains C functions that print basic information about Python lists and Python bytes objects.
+
