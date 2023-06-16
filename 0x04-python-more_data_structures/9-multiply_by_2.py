@@ -1,0 +1,10 @@
+#!/usr/bin/python3
+
+def multiply_by_2(a_dictionary):
+    new_dir = a_dictionary.copy()
+    list_keys = list(new_dir.keys())
+
+    for in_dex in list_keys:
+        new_di[in_dex] *= 2
+
+    return new_dir
