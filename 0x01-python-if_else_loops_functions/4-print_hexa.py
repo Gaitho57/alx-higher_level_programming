@@ -1,4 +1,5 @@
 #!/usr/bin/python3
-#a program that prints all numbers from 0 to 98
-for number in range(0, 99):
-    print("{} = {}".format(number, hex(number)))
+
+# This program prints decimal and hexadecimal representations of numbers from 0 to 98
+for num in range(0, 99):
+    print("{:d} = 0x{:x}".format(num, num))
