@@ -14,4 +14,3 @@ def fizzbuzz():
 
 # Calls the fizzbuzz function towork
 fizzbuzz()
-
