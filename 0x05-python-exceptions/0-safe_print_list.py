@@ -1,13 +1,12 @@
 def safe_print_list(my_list=[], x=0):
     try:
-        count = 0
+        index = 0
         for element in my_list:
-            if count < x:
+            if index < x:
                 print(element, end='')
-                count += 1
+                index += 1
         print()
-        return count
+        return index
     except:
         print()
-        return count
-
+        return index
