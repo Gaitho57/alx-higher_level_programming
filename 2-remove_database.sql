@@ -1,3 +1,2 @@
--- A script that deletes a database if it exists
--- command to delete the table hbtn_0c_0
+-- Deletes a database in the server
 DROP DATABASE IF EXISTS hbtn_0c_0;
