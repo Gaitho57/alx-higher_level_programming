@@ -1,11 +1,6 @@
 #!/usr/bin/node
 
-const arguments = process.argv.slice(2);
+const process = require('process');
+const args = process.argv;
 
-let FirstVar = arguments[0];
-let SecondVar = arguments[1];
-
-FirstVar || 'undefined';
-SecondVar || 'undefined';
-
-console.log(`{FirstVar} is {SecondVar}`);
+console.log(args[2] + ' is ' + args[3]);
