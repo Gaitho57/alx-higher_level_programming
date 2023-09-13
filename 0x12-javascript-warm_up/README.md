@@ -70,3 +70,5 @@ If no arguments are passed to the script, print **“No argument”**
 You must use console.log(...) to print all output
 You are not allowed to use *var*
 You are not allowed to use *length*
+
+[![js-semistandard-style](https://raw.githubusercontent.com/standard/semistandard/master/badge.svg)](https://github.com/standard/semistandard)
