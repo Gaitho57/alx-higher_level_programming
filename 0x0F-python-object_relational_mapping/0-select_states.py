@@ -1,45 +1,42 @@
 #!/usr/bin/python3
-import MySQLdb
+"""Module that lists all states from mySQL database"""
 import sys
+import MySQLdb
 
-def main():
+def list_states (username, password, database):
+    """lists all states from the database hbtn_0e_0_usa.
+    Ags:
+        username: mysql username
+        password: mysql password
+        database: mysql database
     """
-    Access data from the database and print states.
-    
-    Usage: python script.py <mysql_username> <mysql_password> <database_name>
-    """
-    if len(sys.argv) != 4:
-        print("Usage: python script.py <mysql_username> <mysql_password> <database_name>")
-        sys.exit(1)
+    # Connect to the MySQL server
+    db = MySQLdb.connect(host='localhost',\
+            port=3306,\
+            user=username,\
+            passwd=password,\
+            db=database)
+    cursor = db.cursor()
 
-    mysql_username = sys.argv[1]
-    mysql_password = sys.argv[2]
-    database_name = sys.argv[3]
+    # Execute the SQL query to fetch all states
+    cursor.execute("SELECT * FROM states ORDER BY id ASC")
 
-    try:
-        connection = MySQLdb.connect(
-            host="localhost",
-            user=mysql_username,
-            password=mysql_password,
-            db=database_name,
-            port=3306
-        )
-        cursor = connection.cursor()
+    # Fetch all the rows from the query result
+    rows = cursor.fetchall()
 
-        cursor.execute('SELECT * FROM states ORDER BY id ASC')
+    # Print the results
+    for row in rows:
+        print(row)
 
-        states = cursor.fetchall()
+    # Close the database connection
+    db.close()
 
-        for state in states:
-            print(state)
+# Example usage
+if __name__ == '__main__':
 
-    except MySQLdb.Error as e:
-        print(f"Error: {e}")
-    finally:
-        if cursor:
-            cursor.close()
-        if connection:
-            connection.close()
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
 
-if __name__ == "__main__":
-    main()
+    list_states(username, password, database)
+
