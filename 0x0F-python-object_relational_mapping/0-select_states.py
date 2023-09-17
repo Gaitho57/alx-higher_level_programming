@@ -2,28 +2,44 @@
 import MySQLdb
 import sys
 
-'''this modue takes arguments from the command line
-it access data from the database and gives output of states'''
+def main():
+    """
+    Access data from the database and print states.
+    
+    Usage: python script.py <mysql_username> <mysql_password> <database_name>
+    """
+    if len(sys.argv) != 4:
+        print("Usage: python script.py <mysql_username> <mysql_password> <database_name>")
+        sys.exit(1)
 
-mysql username = sys.argv[1]
-mysql password = sys.argv[2]
-database name = sys.argv[3]
+    mysql_username = sys.argv[1]
+    mysql_password = sys.argv[2]
+    database_name = sys.argv[3]
 
-connection = MySQLdb.connect(
-        host = localhost
-        user = mysql username
-        password = mysql password
-        db = database name
-        port = 3306
+    try:
+        connection = MySQLdb.connect(
+            host="localhost",
+            user=mysql_username,
+            password=mysql_password,
+            db=database_name,
+            port=3306
         )
-c = connection.cursor()
+        cursor = connection.cursor()
 
-c.execute('SELECT * FROM states ORDER BY states.id ASC')
+        cursor.execute('SELECT * FROM states ORDER BY id ASC')
 
-states = c.fetchall
+        states = cursor.fetchall()
 
-for state in states:
-    print(state)
+        for state in states:
+            print(state)
 
-cursor.close()
-connection.close()
+    except MySQLdb.Error as e:
+        print(f"Error: {e}")
+    finally:
+        if cursor:
+            cursor.close()
+        if connection:
+            connection.close()
+
+if __name__ == "__main__":
+    main()
