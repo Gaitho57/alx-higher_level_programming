@@ -11,21 +11,21 @@ def list_states (username, password, database):
         database: mysql database
     """
     # Connect to the MySQL server
-    db = MySQLdb.connect(host='localhost',\
+    connection  = MySQLdb.connect(host='localhost',\
             port=3306,\
             user=username,\
             passwd=password,\
             db=database)
-    cursor = db.cursor()
+    c = connection.cursor()
 
-    cursor.execute("SELECT * FROM states ORDER BY id ASC")
+    c.execute("SELECT * FROM states ORDER BY id ASC")
 
-    rows = cursor.fetchall()
+    states = c.fetchall()
 
-    for row in rows:
-        print(row)
+    for state in states:
+        print(state)
     
-    db.close()
+    connection.close()
 
 if __name__ == '__main__':
 
@@ -34,4 +34,3 @@ if __name__ == '__main__':
     database = sys.argv[3]
 
     list_states(username, password, database)
-
