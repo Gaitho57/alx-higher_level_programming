@@ -4,6 +4,7 @@
 import sys
 import MySQLdb
 
+
 def list_states(username, password, database):
     """
     Lists all states from the database hbtn_0e_0_usa.
@@ -31,11 +32,8 @@ def list_states(username, password, database):
 
     connection.close()
 
+
 if __name__ == '__main__':
-    if len(sys.argv) != 4:
-        print("Usage: python script.py <mysql_username> 
-                <mysql_password> <database_name>")
-        sys.exit(1)
 
     username = sys.argv[1]
     password = sys.argv[2]
