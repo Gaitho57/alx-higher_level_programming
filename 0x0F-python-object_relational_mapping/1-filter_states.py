@@ -17,11 +17,8 @@ database = database name"""
         db=database)
 
     c = connection.cursor()
-    c.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
-    states = c.fetchall()
-
-    for state in states:
-        print(state)
+     c.execute("SELECT * FROM `states` ORDER BY `id`")
+    [print(state) for state in c.fetchall() if state[1][0] == "N"]
 
     c.close()
     connection.close()
