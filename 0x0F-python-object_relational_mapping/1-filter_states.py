@@ -21,10 +21,11 @@ database = database name"""
                       "ORDER BY id ASC")
     states =query.fetchall()
 
-    for state instates:
+    for state in states:
         print(state)
 
     c.close()
+    connection.close()
 
 
 if __name__ == '__main__':
