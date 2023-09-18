@@ -9,17 +9,16 @@ def N_states(username, password, database):
 username = mysql password
 password = mysql password
 database = database name"""
-    connection = MySQLdb.connect(
-            host='localhost'
-            port=3306
-            user=username
-            pssd=password
-            db=database)
+    cconnection = MySQLdb.connect(
+        host='localhost',
+        port=3306,  # Corrected the port number
+        user=username,
+        passwd=password,  # Corrected the argument name
+        db=database)
 
     c = connection.cursor()
-    query = c.execute("SELECT * FROM states WHERE name LIKE 'N%' "
-                      "ORDER BY id ASC")
-    states =query.fetchall()
+    c.execute("SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC")
+    states = c.fetchall()
 
     for state in states:
         print(state)
