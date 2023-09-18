@@ -1,15 +1,17 @@
 #!/usr/bin/python3
+
+"""
+Module to retrieve states from a MySQL database.
+"""
+
 import MySQLdb
 import sys
-"""module lists all states starting
-with N from the database hbtn_0e_0_usa"""
 
 
-def N_states(username, password, database):
-    """lists all states starting with N
-username = mysql password
-password = mysql password
-database = database name"""
+def retrieve_states(username, password, database):
+    """
+    Retrieve states with names starting with 'N' from database.
+    """
     connection = MySQLdb.connect(
         host='localhost',
         port=3306,
@@ -18,17 +20,23 @@ database = database name"""
         db=database)
 
     c = connection.cursor()
-    c.execute("SELECT * FROM states WHERE name LIKE 'N%' "
-              "ORDER BY id ASC")
+    query = "SELECT * FROM states WHERE name LIKE 'N%' ORDER BY id ASC"
+    c.execute(query)
     states = c.fetchall()
 
     for state in states:
         print(state)
 
+    c.close()
+    connection.close()
+
 
 if __name__ == '__main__':
+    """
+    Main function to execute the script.
+    """
     username = sys.argv[1]
     password = sys.argv[2]
     database = sys.argv[3]
 
-    N_states(username, password, database)
+    retrieve_states(username, password, database)
