@@ -18,7 +18,7 @@ def retrieve_statevalue(username, password, database, statename):
             port=3306,
             user=username,
             passwd=password,
-            db=database
+            db=database,
             state=statename
             )
 
@@ -28,6 +28,9 @@ def retrieve_statevalue(username, password, database, statename):
     states = cursor.fetchall()
 
     for state in states:
+        print(state)
+
+        cursor.close()
         connection.close()
 
 
