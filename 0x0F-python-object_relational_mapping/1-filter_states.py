@@ -1,3 +1,4 @@
+#!/usr/bin/python3
 import MySQLdb
 import sys
 """module lists all states starting
@@ -9,19 +10,20 @@ def N_states(username, password, database):
 username = mysql password
 password = mysql password
 database = database name"""
-    cconnection = MySQLdb.connect(
+    connection = MySQLdb.connect(
         host='localhost',
-        port=3306,  # Corrected the port number
+        port=3306,
         user=username,
-        passwd=password,  # Corrected the argument name
+        passwd=password,
         db=database)
 
     c = connection.cursor()
-     c.execute("SELECT * FROM `states` ORDER BY `id`")
-    [print(state) for state in c.fetchall() if state[1][0] == "N"]
+    c.execute("SELECT * FROM states WHERE name LIKE 'N%' "
+              "ORDER BY id ASC")
+    states = c.fetchall()
 
-    c.close()
-    connection.close()
+    for state in states:
+        print(state)
 
 
 if __name__ == '__main__':
