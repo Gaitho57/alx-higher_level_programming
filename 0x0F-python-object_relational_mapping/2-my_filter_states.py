@@ -2,7 +2,7 @@
 
 """
 Module that retrieves value of an argument
-from a MYSQL database
+from a MySQL database
 """
 
 import sys
@@ -14,17 +14,16 @@ def retrieve_statevalue(username, password, database, statename):
     retrieves information of a state from the table
     """
     connection = MySQLdb.connect(
-            host='localhost',
-            port=3306,
-            user=username,
-            passwd=password,
-            db=database,
-            state=statename
-            )
+        host='localhost',
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database
+    )
 
     cursor = connection.cursor()
     query = "SELECT * FROM states WHERE name = %s ORDER BY id ASC"
-    cursor.execute(query)
+    cursor.execute(query, (statename,))
     states = cursor.fetchall()
 
     for state in states:
