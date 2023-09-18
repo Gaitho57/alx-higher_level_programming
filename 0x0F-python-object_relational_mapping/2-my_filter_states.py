@@ -30,8 +30,8 @@ def retrieve_statevalue(username, password, database, statename):
     for state in states:
         print(state)
 
-        cursor.close()
-        connection.close()
+    cursor.close()
+    connection.close()
 
 
 if __name__ == '__main__':
