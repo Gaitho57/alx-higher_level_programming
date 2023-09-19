@@ -9,7 +9,6 @@ from a MySQL database and print them to the console.
 Usage:
     $ python my_module.py <username> <password> <database>
 """
-
 import MySQLdb
 import sys
 
