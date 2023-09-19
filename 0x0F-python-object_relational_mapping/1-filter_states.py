@@ -1,14 +1,43 @@
 #!/usr/bin/python3
-"""Module lists all states from the hbtn_0e_0_usa database."""
-import sys
+
+"""
+Module to retrieve states from a MySQL database.
+"""
+
 import MySQLdb
+import sys
 
-if __name__ == "__main__":
-    # Get MySQL credentials from command-line arguments
-    # Connect to MySQL server
-    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
-    c = db.cursor()
 
-    # Execute the SQL query to retrieve all states sorted by id
-    c.execute("SELECT * FROM `states` ORDER BY `id`")
-    [print(state) for state in c.fetchall() if state[1][0] == "N"]
+def retrieve_states(username, password, database):
+    """
+    Retrieve states from the database and filter those starting with 'N'.
+    """
+    connection = MySQLdb.connect(
+        host='localhost',
+        port=3306,
+        user=username,
+        passwd=password,
+        db=database)
+
+    c = connection.cursor()
+    query = "SELECT * FROM states ORDER BY id"
+    c.execute(query)
+    states = c.fetchall()
+
+    for state in states:
+        if state[1].startswith('N'):
+            print(state)
+
+    c.close()
+    connection.close()
+
+
+if __name__ == '__main__':
+    """
+    Main function to execute the script.
+    """
+    username = sys.argv[1]
+    password = sys.argv[2]
+    database = sys.argv[3]
+
+    retrieve_states(username, password, database)
