@@ -1,4 +1,3 @@
-#!/usr/bin/python3
 """
 This module provides functions to retrieve states from a MySQL database.
 
