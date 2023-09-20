@@ -1,6 +1,6 @@
 #!/usr/bin/python3
 """
-Script that lists all State objects that contain the letter a from database
+Script that lists all State objects that contain the letter a from database.
 """
 
 import sys
@@ -10,6 +10,11 @@ from model_state import Base, State
 
 
 if __name__ == "__main__":
+    """
+    Entry point of the script. Retrieves State objects that contain
+    the letter 'a' from the database.
+    """
+
     # Get MySQL credentials and database name from command-line arguments
     username = sys.argv[1]
     password = sys.argv[2]
@@ -26,9 +31,9 @@ if __name__ == "__main__":
     session = Session()
 
     states = session.query(State)\
-            .filter(State.name.like('%a%'))\
-            .order_by(State.id)\
-            .all()
+        .filter(State.name.like('%a%'))\
+        .order_by(State.id)\
+        .all()
 
     # Print the retrieved State objects
     for state in states:
