@@ -1,68 +1,22 @@
-i#!/usr/bin/python3
-
-"""
-This script lists all cities from the database hbtn_0e_4_usa.
-
-Usage: python3 script_name.py username password database
-Example: python3 script_name.py myuser mypassword mydatabase
-
-Requirements:
-- The script should take 3 arguments: MySQL username, MySQL password, and database name.
-- The module MySQLdb is used for database connection (import MySQLdb).
-- The script connects to a MySQL server running on localhost at port 3306.
-- Results must be sorted in ascending order by cities.id.
-- The script can use execute() only once.
-- Results must be displayed as they are in the example below.
-- The code should not be executed when imported.
-"""
+#!/usr/bin/python3
+"""Module that lists all states from the hbtn_0e_0_usa database."""
 
 import sys
 import MySQLdb
 
+if __name__ == "__main__":
+    # Get MySQL credentials and search name from command-line arguments
+    db = MySQLdb.connect(user=sys.argv[1], passwd=sys.argv[2], db=sys.argv[3])
 
-def list_cities(username, password, database):
-    """
-    Connects to the MySQL database and lists all cities.
+    # Connect to MySQL server
+    c = db.cursor()
 
-    Args:
-        username (str): MySQL username.
-        password (str): MySQL password.
-        database (str): MySQL database name.
+    # Execute the SQL query to retrieve all states
+    c.execute("SELECT `c`.`id`, `c`.`name`, `s`.`name` \
+                 FROM `cities` as `c` \
+                INNER JOIN `states` as `s` \
+                   ON `c`.`state_id` = `s`.`id` \
+                ORDER BY `c`.`id`")
 
-    Returns:
-        None. Prints the cities directly.
-
-    """
-    connection = MySQLdb.connect(
-        host='localhost',
-        port=3306,
-        user=username,
-        passwd=password,
-        db=database
-    )
-
-    cursor = connection.cursor()
-
-    query = 'SELECT * FROM cities ORDER BY id ASC'
-
-    cursor.execute(query)
-
-    cities = cursor.fetchall()
-
-    cursor.close()
-    connection.close()
-
-    for city in cities:
-        print(city)
-
-
-if __name__ == '__main__':
-    if len(sys.argv) != 4:
-        print("Error: Invalid arguments")
-        sys.exit(1)
-
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
-    list_cities(username, password, database)
+    # Fetch all rows and print the states
+    [print(city) for city in c.fetchall()]
