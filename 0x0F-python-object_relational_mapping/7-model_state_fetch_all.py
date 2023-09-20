@@ -16,9 +16,8 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     # Connect to MySQL server
-    # Connect to MySQL server
     engine = create_engine(
-    f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}'
+        f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}'
     )
     # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
@@ -32,6 +31,3 @@ if __name__ == "__main__":
     # Print the retrieved State objects
     for state in states:
         print(f"{state.id}: {state.name}")
-
-    # Close the session
-    session.close()
