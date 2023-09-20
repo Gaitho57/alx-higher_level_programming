@@ -19,6 +19,7 @@ Requirements:
 import sys
 import MySQLdb
 
+
 def list_cities(username, password, database):
     """
     Connects to the MySQL database and lists all cities.
@@ -53,6 +54,7 @@ def list_cities(username, password, database):
 
     for city in cities:
         print(city)
+
 
 if __name__ == '__main__':
     if len(sys.argv) != 4:
