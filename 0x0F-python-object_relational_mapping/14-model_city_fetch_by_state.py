@@ -1,13 +1,13 @@
 #!/usr/bin/python3
 """
-Script that deletes all State objects with a name
-containing the letter a from the database hbtn_0e_6_usa
+Script that prints all City objects from the database
 """
 
 import sys
 from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
+from model_city import City
 
 
 if __name__ == "__main__":
@@ -26,12 +26,12 @@ if __name__ == "__main__":
     # Create a Session instance
     session = Session()
 
-    # Query State objects that contain the letter 'a'
-    states = session.query(State).filter(State.name.like('%a%')).all()
+    # Query City objects and order by id
+    cities = session.query(City).order_by(City.id).all()
 
-    for state in states:
-        session.delete(state)
-    session.commit()
+    # Print City objects grouped by the corresponding State name
+    for city in cities:
+        print(f'{city.state.name}: ({city.id}) {city.name}')
 
     # Close the session
     session.close()
