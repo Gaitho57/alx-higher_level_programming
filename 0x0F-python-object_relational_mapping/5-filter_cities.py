@@ -1,7 +1,7 @@
 #!/usr/bin/python3
 
 """
-Module that lists all cities in the specified state from the hbtn_0e_0_usa database.
+Module that lists all cities in the specified state from the database.
 """
 
 import sys
@@ -14,12 +14,13 @@ if __name__ == "__main__":
     cursor = db.cursor()
 
     # Execute the SQL query to retrieve cities in the specified state
-    query = ("SELECT * FROM `cities` as `c` \
-                INNER JOIN `states` as `s` \
-                   ON `c`.`state_id` = `s`.`id` \
-                ORDER BY `c`.`id`")
+    query = ("SELECT * FROM `cities` as `c` "
+             "INNER JOIN `states` as `s` "
+             "ON `c`.`state_id` = `s`.`id` "
+             "ORDER BY `c`.`id`")
     cursor.execute(query)
 
     # Fetch all rows and filter cities by the specified state
     # and print the cities separated by commas
-    print(", ".join([city[2] for city in cursor.fetchall() if city[4] == sys.argv[4]]))
+    cities = [city[2] for city in cursor.fetchall() if city[4] == sys.argv[4]]
+print(", ".join(cities))
