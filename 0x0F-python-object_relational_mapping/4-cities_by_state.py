@@ -1,4 +1,4 @@
-#!/usr/bin/python3
+i#!/usr/bin/python3
 
 """
 This script lists all cities from the database hbtn_0e_4_usa.
@@ -7,13 +7,13 @@ Usage: python3 script_name.py username password database
 Example: python3 script_name.py myuser mypassword mydatabase
 
 Requirements:
-- The script should connect to a MySQL server running on localhost at port
-    3306.
-- Results must be sorted in ascending order by cities.id.
+- The script should take 3 arguments: MySQL username, MySQL password, and database name.
 - The module MySQLdb is used for database connection (import MySQLdb).
-- The execute() method is used only once.
-- Results are displayed one row at a time.
-
+- The script connects to a MySQL server running on localhost at port 3306.
+- Results must be sorted in ascending order by cities.id.
+- The script can use execute() only once.
+- Results must be displayed as they are in the example below.
+- The code should not be executed when imported.
 """
 
 import sys
