@@ -8,6 +8,7 @@ from sqlalchemy import create_engine
 from sqlalchemy.orm import sessionmaker
 from model_state import Base, State
 
+
 if __name__ == "__main__":
     # Get MySQL credentials and database name from command-line arguments
     username = sys.argv[1]
@@ -15,8 +16,10 @@ if __name__ == "__main__":
     database = sys.argv[3]
 
     # Connect to MySQL server
-    engine = create_engine(f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}')
-
+    # Connect to MySQL server
+    engine = create_engine(
+    f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}'
+    )
     # Create a configured "Session" class
     Session = sessionmaker(bind=engine)
 
