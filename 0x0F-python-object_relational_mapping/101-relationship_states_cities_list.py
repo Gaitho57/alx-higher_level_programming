@@ -1,5 +1,5 @@
 #!/usr/bin/python3
-""" gives the output State object with the name passed as argument from the database
+""" gives the State object with the name passed as argument from the database
 """
 import sys
 from relationship_state import Base, State
@@ -10,9 +10,6 @@ from sqlalchemy.orm import relationship
 
 
 if __name__ == "__main__":
-    """
-    main function where the operation is executed
-    """
     engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
                            .format(sys.argv[1], sys.argv[2], sys.argv[3]))
     Base.metadata.create_all(engine)
