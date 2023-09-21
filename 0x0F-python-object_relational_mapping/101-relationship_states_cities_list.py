@@ -1,40 +1,25 @@
 #!/usr/bin/python3
+""" gives the output State object with the name passed as argument from the database
 """
-Script that lists all State objects
-and corresponding City objects in the database
-"""
-
 import sys
-from sqlalchemy import create_engine
-from sqlalchemy.orm import sessionmaker
 from relationship_state import Base, State
 from relationship_city import City
+from sqlalchemy import (create_engine)
+from sqlalchemy.orm import sessionmaker
+from sqlalchemy.orm import relationship
 
 
 if __name__ == "__main__":
-    # Get MySQL credentials and database name from command-line arguments
-    username = sys.argv[1]
-    password = sys.argv[2]
-    database = sys.argv[3]
-
-    # Connect to MySQL server
-    engine = create_engine(
-        f'mysql+mysqldb://{username}:{password}@localhost:3306/{database}'
-    )
-    # Create a configured "Session" class
+    """
+    main function where the operation is executed
+    """
+    engine = create_engine('mysql+mysqldb://{}:{}@localhost:3306/{}'
+                           .format(sys.argv[1], sys.argv[2], sys.argv[3]))
+    Base.metadata.create_all(engine)
     Session = sessionmaker(bind=engine)
-
-    # Create a Session instance
     session = Session()
-
-    # Retrieve all State objects with corresponding City objects
-    states = session.query(State).order_by(State.id).all()
-
-    # Print the State and corresponding City objects
-    for state in states:
-        print(f"{state.id}: {state.name}")
-        for city in state.cities:
-            print(f"\t{city.id}: {city.name}")
-
-    # Close the session
-    session.close()
+    for instance in session.query(State).order_by(State.id):
+        print(instance.id, instance.name, sep=": ")
+        for city_ins in instance.cities:
+            print("    ", end="")
+            print(city_ins.id, city_ins.name, sep=": ")
