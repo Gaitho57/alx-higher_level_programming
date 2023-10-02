@@ -6,7 +6,9 @@ import requests
 
 
 if __name__ == "__main__":
-    # get the url from the command line
+    """
+    get the url from the command line
+    """
     url = sys.argv[1]
     email = sys.argv[2]
 
