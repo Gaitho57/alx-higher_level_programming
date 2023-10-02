@@ -21,4 +21,7 @@ def fetch_status():
     print("\t- utf8 content:", body.decode('utf-8'))
 
 if __name__ == "__main__":
+    """
+    where program begins to execute
+    """
     fetch_status()
